@@ -1,4 +1,4 @@
-# burger
+# Burger
 * Portfolio : https://yoonheekim.github.io/YoonPortfolio/
 * Heroku : http://www.example.com
 
