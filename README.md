@@ -1,6 +1,6 @@
 # Burger
 * Portfolio : https://yoonheekim.github.io/YoonPortfolio/
-* Heroku : http://www.example.com
+* Heroku : https://burger-yh.herokuapp.com/
 
 ## Overviews
 1. Burger logger with MySQL, Node, Express, Handlebars and a homemade ORM
