@@ -32,11 +32,13 @@ var orm = {
         })
 
     },
-    updateOne: function(table, condition, cb){
+    updateOne: function(table, objValues, condition, cb){
+        objToSql(objValues);
         var queryString = "UPDATE ";
         queryString += table ;
         queryString += " SET ";
-        queryString += values;
+        queryString += objToSql(objValues);
+        queryString += " WHERE "
         queryString += condition;
 
         connection.query(queryString, function(err, result){
@@ -49,6 +51,20 @@ var orm = {
     }
 }
 
+function objToSql(obj){
+    var arr = [];
+    for(var key in obj){
+        var value = obj[key];
+        if (Object.hasOwnProperty.call(obj, key)) {
+            // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+              value = "'" + value + "'";
+            }
+            arr.push(key + "=" + value);
+        }
+    }
+    return arr.toString();
+}
 
 // Export the ORM object in module.exports.
 module.exports = orm;

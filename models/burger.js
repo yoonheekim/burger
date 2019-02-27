@@ -8,19 +8,17 @@ var burger = {
             cb(res);
         });
     },
-    insertOne: function(cb){
-        orm.insertOne("burger", function(res){
+    insertOne: function(tableCol, values, cb){
+        orm.insertOne("burgers", tableCol, values, function(res){
             cb(res);
         })
     },
-    updateOne: function(value, condition, cb){
-        orm.updateOne("burger", value, condition, function(res){
+    updateOne: function(objColVals, condition, cb){
+        orm.updateOne("burgers", objColVals, condition, function(res){
             cb(res);
         });
     }
-    // selectAll()
-// insertOne()
-// updateOne()
+
 }
 // Export at the end of the burger.js file.
 module.exports = burger;
